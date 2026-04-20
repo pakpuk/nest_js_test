@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
@@ -9,5 +9,10 @@ export class UsersController {
     @Get('fetch')
     fetchUsers(){
         return {message: 'Fetching users...'}
+    }
+
+    @Post('path')
+    postUser(){
+        return {message: 'Posting user...'}
     }
 }
