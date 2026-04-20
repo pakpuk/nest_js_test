@@ -1,4 +1,5 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Req, Res } from '@nestjs/common';
+import express from 'express';
 
 @Controller('users')
 export class UsersController {
@@ -12,7 +13,7 @@ export class UsersController {
     }
 
     @Post('path')
-    postUser(){
-        return {message: 'Posting user...'}
+    postUser(@Req() request: express.Request,@Res() response:express.Response){
+       console.log(request.body);
     }
 }
