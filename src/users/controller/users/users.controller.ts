@@ -24,6 +24,7 @@ export class UsersController {
     @Post('create')
     CreateUser(@Body() userdata: CreateUserDto){
         console.log(userdata);
+        return this.userService.CreateUser(userdata);
     }
 
     @Get('id')
