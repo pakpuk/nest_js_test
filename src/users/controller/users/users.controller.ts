@@ -1,12 +1,15 @@
 import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
 import express from 'express';
 import { CreateUserDto } from 'src/users/dtos/CreateUser.dtos';
+import { UsersService } from 'src/users/services/users/users.service';
 
 @Controller('users')
 export class UsersController {
+
+    constructor(private userService : UsersService){}
     @Get()
     getUsers(){
-        return {message: 'ghaith',email :'ghaith@example.com'}
+        return this.userService.fetchUsers();
     }
     @Get('fetch')
     fetchUsers(){
